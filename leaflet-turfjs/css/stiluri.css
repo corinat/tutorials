@@ -1,0 +1,649 @@
+        html, body {
+            background-color: white;
+            position: relative;
+        }
+        #container {  
+              width: 100%;
+              height: 1380px;
+              resize:both;               
+        }
+      
+        .responsive-image {
+          height: auto;
+          width:47%;
+            position: relative;
+        }
+      
+        
+        h4 {
+            font-family: sans-serif;
+            /*text-indent: 50px;*/
+           
+            padding-left: 100px;
+            padding-right: 100px; 
+            left: 270px;
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+        }
+        
+        div {
+            font-family:sans-serif;
+            
+        }
+        p {
+           word-wrap: break-word;    
+           left: 470px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;    
+        }
+        textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 890px; 
+            left: 21%;
+            width: 82em;
+            height: 50em;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 320px;
+            width: 1200px;
+            height: 550px;
+            left: -50px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }
+        
+        @media screen and (max-width: 320px) {
+          /* comes into effect for screens less than or equal to 320 pixels */
+           #container {  
+              width: 100%;
+              height: 1080px;
+              resize:both;               
+        }
+        .responsive-image {
+          height: auto;
+          width: 100%;
+        }    
+            textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 760px; 
+            left: 5%;
+            width: 25em;
+            height: 64em;
+            font-size: 10px;    
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 18px;
+            width: 240px;
+            height: 240px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }    
+         h4 {
+            font-family: sans-serif;
+            text-align: justify; 
+            text-indent: 20px;  
+            font-family: sans-serif;
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+             font-size: 15px;
+        }
+        
+        div {
+            height: 70px;
+            font-family:sans-serif;
+            font-size: 13px;            
+        }
+        p {               
+           left: 0px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+           font-size: 13px;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;    
+        }    
+       
+          #somethingorother {
+            width: 120px ;
+          }
+        }
+        @media screen and (min-width: 321px) and (max-width: 480px) {
+           #container {  
+              width: 100%;
+              height: 1080px;
+              resize:both;               
+        }
+           
+        .responsive-image {
+          height: auto;
+          width: 100%;
+        }     
+            textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 735px; 
+            left: 6%;
+            width: 29em;
+            height: 62em;
+			font-size: 10px;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 20px;
+            width: 290px;
+            height: 270px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }    
+         h4 {
+            font-family: sans-serif;
+            text-align: justify; 
+            text-indent: 20px; 
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+             font-size: 15px;
+        }
+        
+        div {
+            height: 70px;
+            font-family:sans-serif;
+            font-size: 13px;            
+        }
+        p {               
+           left: 0px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+            font-size: 13px;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;
+           word-wrap: break-word;    
+        }   
+        .rwd-break { display: none; }    
+           
+          /* comes into effect for screens between 321 and 480 pixels (inclusive) */
+          #somethingorother {
+            width: 320px ;
+          }
+        }
+        @media screen and (min-width: 481px) and (max-width: 786px) {
+            #container {  
+              width: 100%;
+              height: 1320px;
+              resize:both;               
+        }
+        .responsive-image {
+          height: auto;
+          width: 100%;
+        }     
+            textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 820px; 
+            left: 5%;
+            width: 44em;
+            height: 50em;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 20px;
+            width: 600px;
+            height: 500px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }    
+         h4 {
+            font-family: sans-serif;
+            text-align: justify; 
+            text-indent: 20px; 
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+             font-size: 15px;
+        }
+        
+        div {
+            height: 70px;
+            font-family:sans-serif;
+            font-size: 13px;            
+        }
+        p {               
+           left: 0px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+            font-size: 13px;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;
+           word-wrap: break-word;    
+        }   
+        .rwd-break { display: none; }  
+            
+            /* comes into effect for screens larger than or equal to 768 pixels */
+         #somethingorother {
+            width: 480px ;
+          }
+        }
+
+        @media screen and (min-width: 788px) and (max-width: 900px) {
+            #container {  
+              width: 100%;
+              height: 1320px;
+              resize:both;               
+        }
+        .responsive-image {
+          height: auto;
+          width: 100%;
+        }     
+            textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 820px; 
+            left: 5%;
+            width: 53em;
+            height: 50em;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 20px;
+            width: 700px;
+            height: 500px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }    
+         h4 {
+            font-family: sans-serif;
+            text-align: justify; 
+            text-indent: 20px; 
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+             font-size: 15px;
+        }
+        
+        div {
+            height: 70px;
+            font-family:sans-serif;
+            font-size: 13px;            
+        }
+        p {               
+           left: 0px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+            font-size: 13px;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;
+           word-wrap: break-word;    
+        }   
+        .rwd-break { display: none; }  
+            
+            /* comes into effect for screens larger than or equal to 768 pixels */
+         #somethingorother {
+            width: 787px ;
+          }
+        }
+
+
+@media screen and (min-width: 901px) and (max-width: 1100px) {
+            #container {  
+              width: 100%;
+              height: 1320px;
+              resize:both;               
+        }
+        .responsive-image {
+          height: auto;
+          width: 100%;
+        }     
+            textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 820px; 
+            left: 13%;
+            width: 53em;
+            height: 50em;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 20px;
+            width: 850px;
+            height: 500px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }    
+         h4 {
+            font-family: sans-serif;
+            text-align: justify; 
+            text-indent: 20px; 
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+             font-size: 15px;
+        }
+        
+        div {
+            height: 70px;
+            font-family:sans-serif;
+            font-size: 13px;            
+        }
+        p {               
+           left: 0px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+            font-size: 13px;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;
+           word-wrap: break-word;    
+        }   
+        .rwd-break { display: none; }  
+            
+            /* comes into effect for screens larger than or equal to 768 pixels */
+         #somethingorother {
+            width: 900px ;
+          }
+        }
+
+@media screen and (min-width: 1101px) and (max-width: 1300px) {
+            #container {  
+              width: 100%;
+              height: 1920px;
+              resize:both;               
+        }
+        .responsive-image {
+          height: auto;
+          width: 100%;
+        }     
+            textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 820px; 
+            left: 18%;
+            width: 63em;
+            height: 90em;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 25px;
+            width: 1150px;
+            height: 500px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }    
+         h4 {
+            font-family: sans-serif;
+            text-align: justify; 
+            text-indent: 20px; 
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+             font-size: 15px;
+        }
+        
+        div {
+            height: 70px;
+            font-family:sans-serif;
+            font-size: 13px;            
+        }
+        p {               
+           left: 0px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+            font-size: 13px;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;
+           word-wrap: break-word;    
+        }   
+        .rwd-break { display: none; }  
+            
+            /* comes into effect for screens larger than or equal to 768 pixels */
+         #somethingorother {
+            width: 1100px ;
+          }
+        }
+
+         @media screen and (min-width: 1301px) and (max-width: 1500px) {
+            #container {  
+              width: 100%;
+              height: 1920px;
+              resize:both;               
+        }
+        .responsive-image {
+          height: auto;
+          width: 100%;
+        }     
+            textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 820px; 
+            left: 25%;
+            width: 53em;
+            height: 90em;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 180px;
+            width: 990px;
+            height: 500px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }    
+         h4 {
+            font-family: sans-serif;
+            text-align: justify; 
+            text-indent: 20px; 
+            font-size: 13px;
+            padding-left: 10px;
+            padding-right: 10px; 
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+             font-size: 15px;
+             margin-left: 10px;
+        }
+        
+        div {
+            height: 70px;
+            font-family:sans-serif;
+            font-size: 13px;            
+        }
+        p {               
+           left: 0px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+            font-size: 13px;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;
+           word-wrap: break-word;    
+        }   
+        .rwd-break { display: none; }  
+            
+            /* comes into effect for screens larger than or equal to 768 pixels */
+         #somethingorother {
+            width: 1300px ;
+          }
+        }
+
+        
+          @media screen and (min-width: 1501px) {
+            #container {  
+              width: 100%;
+              height: 1380px;
+              resize:both;               
+        }
+      
+        .responsive-image {
+          height: auto;
+          width:47%;
+            position: relative;
+        }
+      
+        
+        h4 {
+            font-family: sans-serif;
+            /*text-indent: 50px;*/
+           
+            padding-left: 100px;
+            padding-right: 100px; 
+            left: 270px;
+        }
+        h1 {             
+             font-family: sans-serif;
+             text-align: justify;
+        }
+        
+        div {
+            font-family:sans-serif;
+            
+        }
+        p {
+           word-wrap: break-word;    
+           left: 470px;
+           right: 200px;    
+           position: relative;    
+           font-family: sans-serif;
+           text-align: justify;
+           padding-left: 30px;
+           padding-right: 30px;    
+        }
+        textarea {/*{ resize:both; }  none|horizontal|vertical|both */
+        /*textarea.vert { resize:vertical; }*/
+            resize:none; 
+            position:absolute; 
+            background-color:#c9c9c9; 
+            right: 100%; 
+            top: 890px; 
+            left: 21%;
+            width: 82em;
+            height: 50em;
+        }
+        iframe{
+            margin-top: 20px;
+            margin-bottom: 50px;
+            margin-left: 320px;
+            width: 1200px;
+            height: 550px;
+            left: -50px;
+            -moz-border-radius: 12px;
+            -webkit-border-radius: 12px;
+            border-radius: 12px;
+            -moz-box-shadow: 4px 4px 14px #000;
+            -webkit-box-shadow: 4px 4px 14px #000;
+            box-shadow: 4px 4px 14px #000;
+        }   
+          /* comes into effect for screens larger than or equal to 768 pixels */
+          #somethingorother {
+            width: 786px ;
+          }
+        }
+       

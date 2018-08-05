@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Turf-distance</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.css" />
+    <!--<link rel="stylesheet" href="../tutorials/leaflet-turfjs/css/stiluri.css" />-->
+      
+    <style>
+    html, body, #map {
+          
+         height:100%;
+         width:100%;
+         padding:0px;
+         margin:0px;
+         z-index:1;              
+      }  
+        #distance {
+            position: absolute;
+            right: 320px;
+            top: 30px;      
+            z-index:2;   
+            font-family: sans-serif;
+            text-decoration: none;
+            width: 370px;
+            height: 90px;
+            resize:both;
+            overflow: auto;            
+            font-family: sans-serif;
+            padding-left: 6px;
+            color: black;
+            background-color: rgba(193, 193, 188, 0.7);
+            font-size: 15px;
+        }        
+    </style>
+</head>  
+<body>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.3/leaflet.js"></script>
+<!--<script src="https://npmcdn.com/@turf/turf/turf.min.js"></script>-->
+<!--<script src="https://cdn.jsdelivr.net/npm/@turf/turf@5/turf.min.js"></script>-->
+
+<script src="../tutorials/leaflet-turfjs/js/turf_min.js"></script>
+<script src="../tutorials/leaflet-turfjs/js/turf_dist.min.js"></script>
+<!--<script src="../articles/js/main.js"></script>-->        
+<div id='distance'><h4><center>Click on the map to add markers and drag them </br> to see how the distance to the Red Icon changes</center></h4></div>   <div id="map"></div>    
+<script>
+ var map = L.map('map',{ center: [44.431360, 26.101411], zoom: 5});   
+ var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
+           maxZoom:19, attribution: 'Map by <a href="http://bit.ly/2bD2rGh", title="e-mail: corina@mapwizard.eu">mapWizard</a> | © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> and contributors'}).addTo(map);
+
+ //pagina oficiala turf.js http://turfjs.org/
+ // Haversine formula to account for global curvature https://en.wikipedia.org/wiki/Haversine_formula    
+ var LeafIcon = L.Icon.extend({
+    options: {
+            iconSize:     [25, 41], // size of the icon
+            shadowSize:   [50, 64], // size of the shadow
+            iconAnchor:   [12, 41],  // point of the icon which will correspond to marker's location
+            shadowAnchor: [4, 62],  // the same for the shadow
+            popupAnchor:  [2, -33] // point from which the popup should open relative to the iconAnchor
+    }
+});
+var red_icon =new LeafIcon ({iconUrl: '../tutorials/redIcon.png'});
+
+//GeoJSON structure     
+var redIcon = {
+    "type": "FeatureCollection",
+      "features": [
+        {
+        "type": "Feature",
+         "properties": { 
+          "name": "Red Marker",       
+                        },
+        "geometry": {
+         "type": "Point",
+          "coordinates": [
+            26.024723052978516,//position of the Red Icon
+            44.44039860395622
+            ]
+          }
+        }
+      ]
+    }; 
+    
+
+ var units = "kilometers"; 
+ var dist = [];    
+  
+//calculate the distance between the Red Icon and each Blue Marker added on the map   
+function onEachFeatureCoord (feature, layer) {
+// function to add markers on the map when clicking on it   
+  map.on('click', function(e){    
+    var marker = new L.marker(e.latlng, { draggable:'true'}).addTo(map);
+    // make the Blue Markers dragable,   
+    marker.on('drag', function(e){
+          marker.options.draggable = true;
+          marker.bindPopup("Blue Marker");  
+             //get the updated coordinates of each marker (blue icon) when the markers are draged/moved on the map      
+             var coords = e.target.getLatLng();
+             var lat = coords.lat;
+             var lng = coords.lng;  
+             
+         // function getNewDistance calculates the distance between the Red Marker (pointStart) and each draged/moved Blue Marker. 
+            function getNewDistance () { 
+            for(var i=0;(i<[lat, lng].length) && (i<redIcon.features.length);i++) 
+                         {          
+                         var distanceLayer = turf.distance(redIcon.features[i].geometry.coordinates, [lng,lat], units).toFixed(2) + ' km' + ' ' + [lat, lng] + '</br>'; 
+                         dist.push(distanceLayer); 
+               for (var i = 0; i < dist.length; i++)  
+                      {           
+                      document.getElementById('distance').innerHTML = dist.join('\n');  
+                      document.getElementById('distance').innerHTML = dist[i];
+                      };     
+               };                       
+            };
+            getNewDistance();     
+    });             
+                 
+    marker.bindPopup("<b>You clicked the map at:</b>" + '<br/>'  + e.latlng.toString()).openPopup();
+    //convert the data inside the variable named "marker" in GeoJSON format
+    //the conversion is done to make it easier to select the coordinates of each marker added to the map  
+    var markersJson =  marker.toGeoJSON();
+   //function getDistance calculates the distance between the Red Icon and the Blue Markers when this are added to the map (the initial position)  
+    function getDistance () { 
+            for(var i=0;(i<markersJson.length) && (i<redIcon.features.length);i++) 
+            console.log('test');
+            {          
+            var distanceLayer = turf.distance( redIcon.features[i].geometry.coordinates, markersJson.geometry.coordinates, units).toFixed(2) + ' km' + ' ' + '<b>' + markersJson.geometry.coordinates[1] + ' ' + markersJson.geometry.coordinates[0]+ '<br/>' + '</b>'; 
+                       dist.push(distanceLayer);                 
+            }
+         document.getElementById('distance').innerHTML = dist.join('\n'); 
+         };
+         getDistance(); 
+      }); 
+   }; 
+    var startPoint=L.geoJson(redIcon, {    
+      pointToLayer:function(feature, layer) {
+        return L.marker(layer, {
+            icon: red_icon, title: feature.properties.name
+            //  layer.options.draggable = true;
+        })
+    }, 
+      //call the onEachFeatureCoord function to calculate distance from the Red Icon to each Blue Marker that is added and moved on the map   
+      onEachFeature: onEachFeatureCoord
+    }).addTo(map);  
+    </script>  
+</body>
+</html>
