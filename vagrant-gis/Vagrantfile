@@ -27,9 +27,6 @@ config.vm.network "forwarded_port", guest: 80, host: 8011, host_ip: "127.0.0.1"
 config.vm.network "forwarded_port", guest: 8888, host: 8889, host_ip: "127.0.0.1"
 #config.vbguest.iso_path = "https://download.virtualbox.org/virtualbox/5.2.18/"
 
-if Vagrant.has_plugin?("vagrant-vbguest")
-    config.vbguest.auto_update = false  
-end
 
 #For macOS and Ubuntu!!!!!!!!!!!!!!!!!!!!! Uncomment next line if you are using macOS or Ubuntu!!!!!!!!!
 
@@ -39,19 +36,6 @@ end
 
 config.vm.provision :shell, path: "bootstrap.sh"
 
-config.vm.provision "shell", inline: <<-SHELL
-  #echo "export MYVAR='my_value'" >> /etc/profile.d/myvar.sh
-  #echo export GEOSERVER_HOME=/usr/share/geoserver >> ~/.profile
-  . ~/.profile
-SHELL
-config.vm.provision "shell", inline: <<-SHELL
-  echo 'export GEOSERVER_HOME=/usr/share/geoserver' >> ~/.profile
-  . ~/.profile
-SHELL
-
-
-config.vm.provision "shell", inline: "echo \ export GEOSERVER_HOME=/usr/share/geoserver >> ~/.profile", run: "always"
-config.vm.provision "shell", inline: ". ~/.profile", run: "always"
 # Add the VirtualBox machine:
 
 config.vm.provider "virtualbox" do |vb|
