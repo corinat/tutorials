@@ -1,4 +1,4 @@
-More details about how to create a cross platform micro GIS environment with Vagrat can be found in this article: 
+More details about how to create a cross platform micro GIS environment with Vagrat can be found in this article:
 http://mapwizard.eu/articles/vagrant/index.html
 
 1.Download VirtulBox 2.5.2: - not using the latest version due bugs related with resizing the display/screen.
@@ -56,7 +56,7 @@ $ vagrant package - inside the folder where Vagrantfile is
 11.1 $ vagrant box add foss4gbox package.box
 11.2 $ vagrant box list
 11.3 Next copy files to create a new Vagrant machine
-     sudo cp -r foss4g2/.vagrant/ foss4g2/Vagrantfile foss4g2/ubuntu-xenial-16.04-cloudimg-console.log  foss4g2/bootstrap.sh   ~/Vagrant/test_foss4g/
+     sudo cp -r foss4g2/.vagrant/ foss4g2/Vagrantfile foss4g2/ubuntu-bionic-18.04-cloudimg-console.log  foss4g2/bootstrap.sh   ~/Vagrant/test/
 
      Open Vagrantfile and replace the line config.vm.box = "ubuntu/bionic64" with config.vm.box = "foss4gbox"
      and add the following line:
@@ -65,7 +65,7 @@ $ vagrant package - inside the folder where Vagrantfile is
 
      Vagrant.configure("2") do |config| section
 
-     Next we modify the bootstrap.sh file. Because our new box will install almost everything we have in this file, we will only keep the lines that configures the virtualbox guest additions.
+     Next we modify the bootstrap.sh file. Because our new box will install almost everything we have in this file, we will only keep the line that configures the virtualbox guest additions.
 
      #!/usr/bin/env bash
 
