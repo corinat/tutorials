@@ -22,11 +22,11 @@ config.disksize.size = "20GB"
 
 #for Windows use next line ! - comment out next line if you are using macOS or Ubuntu!!!!!!!!!!
 
-#config.vm.synced_folder "C:/Users/your_user_name/Downloads", "/vagrant_data"
+config.vm.synced_folder "C:/Users/your_user_name/Downloads", "/vagrant_data"
 
 #For macOS and Ubuntu  uncomment next line !!!!!!! And comment out if using Windows as host OS
 
-config.vm.synced_folder "/Users/your_user_name/Downloads", "/vagrant_data"
+#config.vm.synced_folder "/Users/your_user_name/Downloads", "/vagrant_data"
 
 #This is where we pass the bootstrap.sh file so that Vagrant can run install all we need in the #machine.
 
@@ -45,7 +45,7 @@ vb.gui = true
 vb.memory = "2048"
 #vb.memory = "4096"
 
-# set cpu’s
+# set cpu’s  
 
 vb.cpus = 1
 #vb.cpus = 4
