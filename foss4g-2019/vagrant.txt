@@ -1,5 +1,3 @@
-More details about how to create a cross platform micro GIS environment with Vagrat can be found in this article:
-http://mapwizard.eu/articles/vagrant/index.html
 
 1.Download VirtulBox 2.5.2: - not using the latest version due bugs related with resizing the display/screen.
 
@@ -8,7 +6,37 @@ https://www.virtualbox.org/wiki/Download_Old_Builds_5_2
 2.Download Vagrant:
 https://www.vagrantup.com/downloads.html
 
-3. Testing the versions of the software we have just installed
+3. Install vagrant plugins:
+vagrant plugin install vagrant-vbguest
+- to automaticaly resize the display for the virtual machine and enable bidirectional copy/paste and drag and drop from host to guest
+
+vagrant plugin install vagrant-disksize
+- to be able to increase the disk size of our virtual machine, which by default has 10GB
+
+3.1 check if plugins have been successfully installed:
+vagrant plugin list
+
+4. Create a folder for the vagrant machine and name it foss4g
+command line:
+Windows: mkdir hope
+Linux: sudo mkdir foss4g
+
+cd into that folder:
+Windows: cd hope
+Linux: cd hope
+
+5. Download the Vagrant file and bootstrap.sh and add the files into the newly created foss4g folder:
+5.1. vagrant init to create the Vagrant files
+5.2. copy content of Vagrant file from github to the newly created Vagrant file
+5.3. copy the content of bootstrap.sh from github to bootstrap.sf in foss4g folder
+https://github.com/corinat/tutorials/tree/master/foss4g-2019
+
+6. Run <vagrant up> inside the foss4g folder
+
+username: vagrant
+password: vagrant
+
+7. Testing the versions of the software we have just installed
 
 a. gdal
 gdalinfo --version
@@ -20,11 +48,11 @@ c. PostGIS
 sudo -u postgres psql
 select PostGIS_full_version();
 
-4. check that shared folder with the host and copy/paste from host to guest works
+8. check that shared folder with the host and copy/paste from host to guest works
 
-5. If there is time, install geoserver:
+9. If there is time, install geoserver:
 https://docs.geoserver.org/stable/en/user/installation/linux.html
-5.1. Install Java environment
+9.1. Install Java environment
      sudo apt update
      java -version
      sudo apt install default-jre -y
@@ -32,30 +60,32 @@ https://docs.geoserver.org/stable/en/user/installation/linux.html
      java -version
      sudo update-alternatives --config java
 
-5.2. download geoserver.zip
+9.2. download geoserver.zip
      wget https://sourceforge.net/projects/geoserver/files/GeoServer/2.15.2/geoserver-2.15.2-bin.zip
      sudo unzip geoserver-2.15.2-bin.zip
      sudo mv geoserver-2.15.2 /usr/share/geoserver
 
-6. Download data from geospatial portal
+10. Download data from geospatial portal
 http://www.geo-spatial.org/download/romania-seturi-vectoriale
 
 wget http://www.geo-spatial.org/file_download/29525/ro_judete_poligon.zip
 
-7. Ingest data to postgresql database
+
+
+11. Ingest data to postgresql database
 shp2pgsql -s 3844 ro_judete_poligon ro_judete_poligon | PGPASSWORD=postgres psql -h localhost -d postgres -U postgres
 
-8. Add data to geoserver as postgis datastore
+12. Add data to geoserver as postgis datastore
 
-9. Add data to qgis from geoserver
+13. Add data to qgis from geoserver
 
-10. Make vagrant package
-$ vagrant package - inside the folder where Vagrantfile is
+14. Make vagrant package
+$ vagrant package - inside the foss4g folder where Vagrantfile is
 
-11. Add the new package to vagrant
-11.1 $ vagrant box add foss4gbox package.box
-11.2 $ vagrant box list
-11.3 Next copy files to create a new Vagrant machine
+15. Add the new package to vagrant
+15.1 $ vagrant box add foss4gbox package.box
+15.2 $ vagrant box list
+15.3 Next copy files to create a new Vagrant machine
      sudo cp -r foss4g2/.vagrant/ foss4g2/Vagrantfile foss4g2/ubuntu-bionic-18.04-cloudimg-console.log  foss4g2/bootstrap.sh   ~/Vagrant/test/
 
      Open Vagrantfile and replace the line config.vm.box = "ubuntu/bionic64" with config.vm.box = "foss4gbox"
@@ -70,3 +100,7 @@ $ vagrant package - inside the folder where Vagrantfile is
      #!/usr/bin/env bash
 
      sudo apt-get install virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms -y
+
+
+More details about how to create a cross platform micro GIS environment with Vagrat can be found in this article:
+     http://mapwizard.eu/articles/vagrant/index.html

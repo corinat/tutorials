@@ -7,7 +7,7 @@ echo "---Install Lubuntu Desktop---"
 sudo apt install --no-install-recommends lubuntu-desktop -y
 sudo apt-get install virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms -y
 
-#install qgis3
+#install qgis 3.8
 echo "---Install QGIS 3.8 with GRASS and SAGA---"
 sudo sh -c 'echo "deb https://qgis.org/ubuntugis bionic main" >> /etc/apt/sources.list'
 sudo sh -c 'echo "deb-src https://qgis.org/ubuntugis bionic main" >> /etc/apt/sources.list'
