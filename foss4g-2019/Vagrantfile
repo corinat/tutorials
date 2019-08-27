@@ -2,7 +2,7 @@
 
 # vi: set ft=ruby :
 
-#We will add the 16.04 version of ubuntu
+#We will add the 18.04 version of Ubuntu server
 
 #And change the disk space from 10 GB to 30 GB
 
@@ -10,9 +10,9 @@ Vagrant.configure("2") do |config|
 
 config.vm.box = "ubuntu/bionic64"
 
-config.disksize.size = "20GB"
+config.disksize.size = "30GB"
 
-#Stop automatic updates. Tur it to true or commet it out to have guest additios automatically uodated  
+#Stop automatic updates. Tur it to true or commet it out to have guest additios automatically updated  
 config.vbguest.auto_update = false
   
 #We will share the Downloads folder from the Windows host machine with Ubuntu guest OS #from our virtual machine
@@ -25,15 +25,18 @@ config.vbguest.auto_update = false
 
 #for Windows use next line ! - comment out next line if you are using macOS or Ubuntu!!!!!!!!!!
 
-config.vm.synced_folder "C:/Users/your_user_name/Downloads", "/vagrant_data"
+#config.vm.synced_folder "C:/Users/your_user_name/Downloads", "/vagrant_data"
 
 #For macOS and Ubuntu  uncomment next line !!!!!!! And comment out if using Windows as host OS
 
-#config.vm.synced_folder "/Users/your_user_name/Downloads", "/vagrant_data"
+config.vm.synced_folder "/Users/your_user_name/Downloads", "/vagrant_data"
 
-#This is where we pass the bootstrap.sh file so that Vagrant can run install all we need in the #machine.
+#This is where we pass the configuration files: bootstrap.sh and geoserver_boostrap.sh.
 
 config.vm.provision :shell, path: "bootstrap.sh"
+
+# geoserver_boostrap.sh will be run as user Vagrant, but some commands need root rights 
+config.vm.provision "shell", path: "geoserver_bootstratp.sh", privileged: false
 
 # Add the VirtualBox machine:
 
@@ -47,10 +50,11 @@ vb.gui = true
 
 vb.memory = "2048"
 #vb.memory = "4096"
+#vb.memory = "8192"  
 
 # set cpu’s  
 
-vb.cpus = 1
+vb.cpus = 2
 #vb.cpus = 4
 
 
@@ -59,6 +63,14 @@ vb.cpus = 1
 vb.customize ['modifyvm', :id, '--clipboard', 'bidirectional']
 
 vb.customize ['modifyvm', :id, '--draganddrop', 'bidirectional']
+  
+#If using VirtualBox 5.2.x the next linex are not necesary
+#Set the ram for video card of the VM - only for VirtualBox 6.1.x
+
+vb.customize ['modifyvm', :id, "--vram", "32"]
+
+#Set the scale factor - only for VirtualBox 6.1.x
+vb.customize ['setextradata', :id, 'GUI/ScaleFactor', '1.75']  
 
 end
 
