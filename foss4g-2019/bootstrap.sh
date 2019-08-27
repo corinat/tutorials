@@ -7,6 +7,11 @@ echo "---Install Lubuntu Desktop---"
 sudo apt install --no-install-recommends lubuntu-desktop -y
 sudo apt-get install virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms -y
 
+#Install Java
+echo "Install Java"
+sudo apt install default-jre -y
+sudo apt install openjdk-8-jre-headless
+
 #install qgis 3.8
 echo "---Install QGIS 3.8 with GRASS and SAGA---"
 sudo sh -c 'echo "deb https://qgis.org/ubuntugis bionic main" >> /etc/apt/sources.list'
