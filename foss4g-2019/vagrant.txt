@@ -3,8 +3,6 @@
 
 https://www.virtualbox.org/wiki/Download_Old_Builds_5_2
 
-
-
 2.Download Vagrant:
 https://www.vagrantup.com/downloads.html
 
