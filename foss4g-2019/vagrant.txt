@@ -10,30 +10,26 @@ https://www.vagrantup.com/downloads.html
 
 3. Install vagrant plugins:
 vagrant plugin install vagrant-vbguest
-- to automaticaly resize the display for the virtual machine and enable bidirectional copy/paste and drag and drop from host to guest
+- to automatically configure the VM
 
 vagrant plugin install vagrant-disksize
 - to be able to increase the disk size of our virtual machine, which by default has 10GB
 
-3.1 check if plugins have been successfully installed:
+3.1 check if the plugins have been successfully installed:
 vagrant plugin list
 
 4. Create a folder for the vagrant machine and name it foss4g
 command line:
-Windows: mkdir hope
-Linux: sudo mkdir foss4g
+Windows: mkdir foss4g-2019
+Linux: sudo mkdir foss4g-2019
 
 cd into that folder:
-Windows: cd hope
-Linux: cd hope
+Windows: cd foss4g-2019
+Linux: cd foss4g-2019
 
-5. Download the Vagrant file and bootstrap.sh and add the files into the newly created foss4g folder:
-5.1. vagrant init to create the Vagrant files
-5.2. copy content of Vagrant file from github to the newly created Vagrant file
-5.3. copy the content of bootstrap.sh from github to bootstrap.sf in foss4g folder
-https://github.com/corinat/tutorials/tree/master/foss4g-2019
+5. Download the configuration files into the newly created foss4g folder or use git to download/clone the repo.
 
-6. Run <vagrant up> inside the foss4g folder
+6. Run <vagrant up> inside foss4g-2019 folder
 
 username: vagrant
 password: vagrant
@@ -52,40 +48,27 @@ select PostGIS_full_version();
 
 8. check that shared folder with the host and copy/paste from host to guest works
 
-9. If there is time, install geoserver:
-https://docs.geoserver.org/stable/en/user/installation/linux.html
-9.1. Install Java environment
-     sudo apt update
-     java -version
-     sudo apt install default-jre -y
-     sudo apt install openjdk-8-jre-headless
-     java -version
-     sudo update-alternatives --config java
+9. If there is time let's add some data into postgresql and from there to geoserver and from geoserver to qgis
 
-9.2. download geoserver.zip
-     wget https://sourceforge.net/projects/geoserver/files/GeoServer/2.15.2/geoserver-2.15.2-bin.zip
-     sudo unzip geoserver-2.15.2-bin.zip
-     sudo mv geoserver-2.15.2 /usr/share/geoserver
+9.1. Download world boundaries data from thematicmapping.org. - http://thematicmapping.org/downloads/world_borders.php
 
-10. Download world boundaries data from thematicmapping.org
-http://thematicmapping.org/downloads/world_borders.php
+wget http://thematicmapping.org/downloads/TM_WORLD_BORDERS_SIMPL-0.3.zip
+unzip TM_WORLD_BORDERS_SIMPL-0.3.zip
 
-http://thematicmapping.org/downloads/TM_WORLD_BORDERS_SIMPL-0.3.zip
-
-11. Ingest data to postgresql database
+9.2. Ingest data to postgresql database
 shp2pgsql -s 4326 woeld_boundaries world_boundaries | PGPASSWORD=postgres psql -h localhost -d postgres -U postgres
 
-12. Add data to geoserver as postgis datastore
+9.3. Add data to geoserver as postgis datastore
 
-13. Add data to qgis from geoserver
+9.4. Add data to qgis from geoserver
 
-14. Make vagrant package
+10. Create vagrant box
 $ vagrant package - inside the foss4g folder where Vagrantfile is
 
-15. Add the new package to vagrant
-15.1 $ vagrant box add foss4gbox package.box
-15.2 $ vagrant box list
-15.3 Next copy files to create a new Vagrant machine
+11. Add the new package to vagrant
+11.1 $ vagrant box add foss4gbox package.box
+11.2 $ vagrant box list
+11.3 Next copy these files to create a new Vagrant machine
      sudo cp -r foss4g2/.vagrant/ foss4g2/Vagrantfile foss4g2/ubuntu-bionic-18.04-cloudimg-console.log  foss4g2/bootstrap.sh   ~/Vagrant/test/
 
      Open Vagrantfile and replace the line config.vm.box = "ubuntu/bionic64" with config.vm.box = "foss4gbox"
@@ -93,7 +76,6 @@ $ vagrant package - inside the foss4g folder where Vagrantfile is
     
      config.ssh.insert_key = false
 
-     Vagrant.configure("2") do |config| section
 
      Next we modify the bootstrap.sh file. Because our new box will install almost everything we have in this file, we will only keep the line that configures the virtualbox guest additions.
 
