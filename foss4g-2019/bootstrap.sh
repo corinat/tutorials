@@ -23,7 +23,6 @@ gpg --export --armor gpg --fingerprint 51F523511C7028C3 | sudo apt-key add -
 sudo apt-get update -y
 sudo apt-get install qgis python-qgis qgis-plugin-grass saga -y
 
-
 #Install PostgreSQL-11 with PosGIS-2.5.2
 echo "---Install PostgreSQL-11 with PosGIS-2.5.2---"
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
@@ -32,12 +31,14 @@ sudo apt update
 sudo apt install -y postgresql-11 postgresql-11-postgis-2.5 postgis-2.5-utils postgis-2.5-client postgresql-11-postgis-2.5-scripts postgresql-contrib-11 postgresql-client-11
 sudo apt install postgis -y
 
+#add postgis and postgis topology extention to postgres database
+echo "---Add postgis and postgis topology---"
+sudo -u postgres psql -c "CREATE EXTENSION postgis; CREATE EXTENSION postgis_topology;" postgres
 
 # creating password for user postgres
 echo "---Create password for user postgres---"
 sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'postgres';"
 sudo systemctl restart postgresql.service
-
 
 #Install pgAdmin4
 echo "---Install pgAdmin4---"
