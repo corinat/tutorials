@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-sudo apt-get update
-
 #Install Graphical User Interface Lubuntu Desktop
 echo "---Install Lubuntu Desktop---"
 sudo apt install --no-install-recommends lubuntu-desktop -y
