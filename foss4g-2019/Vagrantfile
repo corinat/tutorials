@@ -36,7 +36,7 @@ config.vm.synced_folder "/Users/your_user_name/Downloads", "/vagrant_data"
 config.vm.provision :shell, path: "bootstrap.sh"
 
 # geoserver_boostrap.sh will be run as user Vagrant, but some commands need root rights 
-config.vm.provision "shell", path: "geoserver_bootstratp.sh", privileged: false
+config.vm.provision "shell", path: "geoserver_bootstrap.sh", privileged: false
 
 # Add the VirtualBox machine:
 
