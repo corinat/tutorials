@@ -24,10 +24,6 @@ sudo apt-get update -y
 sudo apt-get install qgis python-qgis qgis-plugin-grass saga -y
 
 
-#add GDAL environment variable to .bashrc
-sudo echo 'export GDAL_DATA=/usr/share/gdal/2.4.2' >> /home/vagrant/.bashrc
-source .bashrc
-
 #Install PostgreSQL-11 with PosGIS-2.5.2
 echo "---Install PostgreSQL-11 with PosGIS-2.5.2---"
 sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" >> /etc/apt/sources.list.d/pgdg.list'
