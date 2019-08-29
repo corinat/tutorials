@@ -88,11 +88,11 @@ run `vagrant package` - inside the foss4g-2019 folder where Vagrantfile is
 
 - `vagrant box list`
 
-- copy these files to a new folder create a new Vagrant machine
+- copy these files to a new folder to create a new machine
 
 `sudo cp -r foss4g2/.vagrant/ foss4g2/Vagrantfile foss4g2/ubuntu-bionic-18.04-cloudimg-console.log  foss4g2/bootstrap.sh   ~/Vagrant/test/`
 
-Open Vagrantfile and:
+Open `Vagrantfile` and:
      
 - replace the line `config.vm.box = "ubuntu/bionic64"` with `config.vm.box = "foss4gbox"`
 
