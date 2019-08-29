@@ -113,4 +113,5 @@ run `vagrant package` - inside the foss4g-2019 folder where Vagrantfile is
      `sudo apt-get install virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms -y`
 
 
-**More details about this can be found http://mapwizard.eu/articles/vagrant/index.html**
+
+**Details about how to use a box from macOS to Windows or vice verse can be found here http://mapwizard.eu/articles/vagrant/index.html**
