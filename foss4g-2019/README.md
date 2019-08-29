@@ -8,41 +8,57 @@ https://www.virtualbox.org/wiki/Downloads
 https://www.vagrantup.com/downloads.html
 
 **3.Install vagrant plugins:**
-vagrant plugin install vagrant-vbguest
 - to automatically configure the VM
 
-vagrant plugin install vagrant-disksize
+`vagrant plugin install vagrant-vbguest`
+
+
 - to be able to increase the disk size of our virtual machine, which by default has 10GB
 
+`vagrant plugin install vagrant-disksize`
+
+
 *3.1 check if the plugins have been successfully installed:*
+
 `vagrant plugin list`
 
 **4. Create a folder for the vagrant machine and name it foss4g-2019**
+
 command line:
-Windows: mkdir foss4g-2019
-Linux: sudo mkdir foss4g-2019
+
+Windows: `mkdir foss4g-2019`
+
+Linux: `sudo mkdir foss4g-2019`
 
 cd into that folder:
-Windows: cd foss4g-2019
-Linux: cd foss4g-2019
+
+Windows: `cd foss4g-2019`
+
+Linux: `cd foss4g-2019`
 
 **5. Download the configuration files into the newly created foss4g folder or use git to download/clone the files.**
 
 **6. Run `vagrant up` inside foss4g-2019 folder**
   
 username: vagrant
+
 password: vagrant
 
 **7. Testing the versions of the software we have just installed**
 
 a. gdal
+
 `gdalinfo --version`
 
 b. postgresql
+
 `psql -V`
 
 c. PostGIS
+
+
 `sudo -u postgres psql`
+
 `select PostGIS_full_version();`
 
 **8. Check that shared folder and copy/paste from host to guest works**
@@ -70,13 +86,14 @@ run `vagrant package` - inside the foss4g-2019 folder where Vagrantfile is
 *11.1 $ vagrant box add foss4gbox package.box*
 *11.2 $ vagrant box list*
 *11.3 Next copy these files to create a new Vagrant machine*
-     `sudo cp -r foss4g2/.vagrant/ foss4g2/Vagrantfile foss4g2/ubuntu-bionic-18.04-cloudimg-console.log  foss4g2/bootstrap.sh   ~/Vagrant/test/`
+
+`sudo cp -r foss4g2/.vagrant/ foss4g2/Vagrantfile foss4g2/ubuntu-bionic-18.04-cloudimg-console.log  foss4g2/bootstrap.sh   ~/Vagrant/test/`
 
      Open Vagrantfile and:
 - replace the line config.vm.box = "ubuntu/bionic64" with config.vm.box = "foss4gbox"
 - add the following line (sometimes there are issues with the ssh key):
  
-    ` config.ssh.insert_key = false`
+     `config.ssh.insert_key = false`
     
 - remove or comment oout the line:
      
