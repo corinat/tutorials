@@ -72,7 +72,7 @@ c. PostGIS
 
 *9.2. Ingest data to postgresql database*
 
-`shp2pgsql -s 4326 TM_WORLD_BORDERS_SIMPL-0.3.shp world-borders | PGPASSWORD=postgres psql -h localhost -d postgres -U postgress`
+`shp2pgsql -s 4326 TM_WORLD_BORDERS_SIMPL-0.3.shp world-borders | PGPASSWORD=postgres psql -h localhost -d postgres -U postgres`
 
 *9.3. Add data to geoserver as postgis datastore*
 
