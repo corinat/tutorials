@@ -40,9 +40,9 @@ Linux: `cd foss4g-2019`
 
 **6. Run `vagrant up` inside foss4g-2019 folder**
   
-username: vagrant
+username: `vagrant`
 
-password: vagrant
+password: `vagrant`
 
 **7. Testing the versions of the software we have just installed**
 
@@ -80,17 +80,23 @@ c. PostGIS
 *9.4. Add data to qgis from geoserver*
 
 **10. Create vagrant box**
+
 run `vagrant package` - inside the foss4g-2019 folder where Vagrantfile is
 
 **11. Add the new package to vagrant**
-*11.1 $ vagrant box add foss4gbox package.box*
-*11.2 $ vagrant box list*
+
+*11.1 `vagrant box add foss4gbox package.box`*
+
+*11.2 `vagrant box list`*
+
 *11.3 Next copy these files to create a new Vagrant machine*
 
 `sudo cp -r foss4g2/.vagrant/ foss4g2/Vagrantfile foss4g2/ubuntu-bionic-18.04-cloudimg-console.log  foss4g2/bootstrap.sh   ~/Vagrant/test/`
 
      Open Vagrantfile and:
-- replace the line config.vm.box = "ubuntu/bionic64" with config.vm.box = "foss4gbox"
+     
+- replace the line `config.vm.box = "ubuntu/bionic64" ` with `config.vm.box = "foss4gbox" `
+
 - add the following line (sometimes there are issues with the ssh key):
  
      `config.ssh.insert_key = false`
