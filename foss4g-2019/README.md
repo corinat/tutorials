@@ -52,6 +52,7 @@ c. PostGIS
 *9.1. Download world boundaries data from thematicmapping.org. - http://thematicmapping.org/downloads/world_borders.php*
 
 `wget http://thematicmapping.org/downloads/TM_WORLD_BORDERS_SIMPL-0.3.zip`
+
 `unzip TM_WORLD_BORDERS_SIMPL-0.3.zip`
 
 *9.2. Ingest data to postgresql database*
