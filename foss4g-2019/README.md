@@ -56,6 +56,7 @@ c. PostGIS
 `unzip TM_WORLD_BORDERS_SIMPL-0.3.zip`
 
 *9.2. Ingest data to postgresql database*
+
 `shp2pgsql -s 4326 world_boundaries world_boundaries | PGPASSWORD=postgres psql -h localhost -d postgres -U postgres`
 
 *9.3. Add data to geoserver as postgis datastore*
