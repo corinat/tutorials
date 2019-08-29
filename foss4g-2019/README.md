@@ -95,7 +95,7 @@ run `vagrant package` - inside the foss4g-2019 folder where Vagrantfile is
 
      Open Vagrantfile and:
      
-- replace the line `config.vm.box = "ubuntu/bionic64" ` with `config.vm.box = "foss4gbox" `
+- replace the line `config.vm.box = "ubuntu/bionic64"` with `config.vm.box = "foss4gbox"`
 
 - add the following line (sometimes there are issues with the ssh key):
  
@@ -116,5 +116,3 @@ run `vagrant package` - inside the foss4g-2019 folder where Vagrantfile is
 
 More details about how to create a cross platform micro GIS environment with Vagrat can be found in this article:
      http://mapwizard.eu/articles/vagrant/index.html
-
-More details about how to create a cross platform micro GIS environment with Vagrat can be found at www.mapwizard.eu in this article: http://mapwizard.eu/articles/vagrant/index.html
