@@ -1,7 +1,6 @@
-## Instalation steps
+## Installation steps
 
-**1.Download and install VirtulBox and the extension pack**
-
+**1.Download and install VirtulBox and the extension pack** 
 https://www.virtualbox.org/wiki/Downloads
 
 **2.Download Vagrant:**
@@ -114,5 +113,4 @@ run `vagrant package` - inside the foss4g-2019 folder where Vagrantfile is
      `sudo apt-get install virtualbox-guest-x11 virtualbox-guest-utils virtualbox-guest-dkms -y`
 
 
-More details about how to create a cross platform micro GIS environment with Vagrat can be found in this article:
-     http://mapwizard.eu/articles/vagrant/index.html
+**More details about this can be found http://mapwizard.eu/articles/vagrant/index.html**
