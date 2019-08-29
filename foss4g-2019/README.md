@@ -114,4 +114,4 @@ run `vagrant package` - inside the foss4g-2019 folder where Vagrantfile is
 
 
 
-**Details about how to use a box from macOS to Windows or vice verse can be found here http://mapwizard.eu/articles/vagrant/index.html**
+**Details about how to use a box from macOS to Windows or vice versa can be found here http://mapwizard.eu/articles/vagrant/index.html**
