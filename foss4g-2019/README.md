@@ -1,8 +1,8 @@
 ## Instalation steps
 
-**1.Download and install VirtulBox 2.5.2 and extension pack: - not using the latest version due bugs related with resizing the display/screen**
+**1.Download and install VirtulBox and the extension pack**
 
-https://www.virtualbox.org/wiki/Download_Old_Builds_5_2
+https://www.virtualbox.org/wiki/Downloads
 
 **2.Download Vagrant:**
 https://www.vagrantup.com/downloads.html
